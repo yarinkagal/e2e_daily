@@ -1,0 +1,22 @@
+table datatotest
+	lineageTag: 9f258f4c-88d2-419f-963d-11938c00ebbb
+	sourceLineageTag: [dbo].[datatotest]
+
+	column Column1
+		dataType: string
+		lineageTag: 3eb5b906-56f6-445e-8e57-93ea6ab641c0
+		sourceLineageTag: Column1
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition datatotest-b3db1852-542c-45d1-bdd2-f4c10921c5e0 = entity
+		mode: directLake
+		source
+			entityName: datatotest
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation IsTableInBiModel = True
+

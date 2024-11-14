@@ -1,0 +1,14 @@
+[
+  {
+    "name": "ADLS_Gen2",
+    "path": "/Tables",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/ADLS_Gen2",
+        "itemId": "3c67ef78-fb9b-4ed4-b585-caf992afe63e",
+        "workspaceId": "d3c09aee-5c0a-4f71-aed9-5500339d3cc1"
+      }
+    }
+  }
+]
