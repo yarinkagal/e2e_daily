@@ -1,0 +1,22 @@
+table Table
+	lineageTag: 6fd30463-9398-4932-9cfb-99c525e4bb43
+
+	column Column1
+		dataType: string
+		lineageTag: 80ec15ef-cb31-4200-b708-af168b14e979
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Table = m
+		mode: import
+		source =
+				let
+				    Source = AzureDataExplorer.Contents("https://trd-jw1wjfwyw5fw1hmpg7.z7.kusto.fabric.microsoft.com", "E2E_KustoDB"),
+				    Table1 = Source{[Name="Table"]}[Data]
+				in
+				    Table1
+
+	annotation PBI_ResultType = Table
+
