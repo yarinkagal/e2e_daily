@@ -1,0 +1,19 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["model model Страна"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.121.7045.0 (Main)
+
+ref table 'model model Страна'
+ref table DateTableTemplate_96a93a2c-6810-4da0-afa9-22e8c682a3e1
+
+ref cultureInfo en-US
+

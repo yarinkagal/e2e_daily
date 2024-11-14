@@ -1,0 +1,48 @@
+table 'model model Страна'
+	lineageTag: 05a04f0a-196c-4785-8d9c-5cf3dedc2ac4
+
+	column ОбщееОписание
+		dataType: string
+		lineageTag: 86e69b3d-66b5-41a2-9ed2-85e2dd88265e
+		summarizeBy: none
+		sourceColumn: ОбщееОписание
+
+		annotation SummarizationSetBy = Automatic
+
+	column Attribute:Название
+		dataType: string
+		lineageTag: 4704ef32-4063-4286-b0d6-48f71b8aa1ad
+		summarizeBy: none
+		sourceColumn: Attribute:Название
+
+		annotation SummarizationSetBy = Automatic
+
+	column Attribute:Численность
+		dataType: int64
+		formatString: 0
+		lineageTag: 184b5ef8-733c-420d-924d-54dd9da5c0ae
+		summarizeBy: sum
+		sourceColumn: Attribute:Численность
+
+		annotation SummarizationSetBy = Automatic
+
+	column Attribute:Столица
+		dataType: string
+		lineageTag: 049494e9-52e1-4e21-971c-d1ab0ee1331e
+		summarizeBy: none
+		sourceColumn: Attribute:Столица
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'model model Страна' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("blkwzw5cwn5u7djer2mr2fecua-ofgp5wxqi6tulezxvoiubx4bua.daily-datamart.pbidedicated.windows.net"),
+				    db_powerbidailymsft_20230802_11424295_09c4 = Source{[Name="db_powerbidailymsft_20230802_11424295_09c4"]}[Data],
+				    #"model_model Страна" = db_powerbidailymsft_20230802_11424295_09c4{[Schema="model",Item="model Страна"]}[Data]
+				in
+				    #"model_model Страна"
+
+	annotation PBI_ResultType = Table
+
